@@ -1,5 +1,5 @@
 env:
-  SCRIPT_NAME: build
+  SCRIPT_NAME: format
 
 # FILE GENERATED WITH: npx ghat fregante/ghatemplates/is-dist-up-to-date
 # SOURCE: https://github.com/fregante/ghatemplates

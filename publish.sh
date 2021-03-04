@@ -1,13 +1,30 @@
 #!/bin/bash
 
 set -e
+
 root=$(pwd)
 PATH="$PATH":$(npm bin)
+
+# html is already taken 😰
+packages="
+checkstyle
+codeframe
+compact
+jslint-xml
+json
+json-with-metadata
+junit
+stylish
+table
+tap
+unix
+visualstudio"
 
 # Download eslint
 npm pack eslint | xargs cat |tar -xz
 eslint="$root/package"
 
+# Test downloaded package and extract some values
 license=$(dot-json "$eslint/package.json" license)
 [ "$license" = 'MIT' ] || {
 	echo License is not MIT
@@ -29,35 +46,25 @@ type=$(dot-json "$eslint/package.json" type)
 nodeEngine=$(dot-json "$eslint/package.json" engines.node)
 author=$(dot-json "$eslint/package.json" author)
 
-# html is already taken 😰
-packages="
-checkstyle
-codeframe
-compact
-jslint-xml
-json
-json-with-metadata
-junit
-stylish
-table
-tap
-unix
-visualstudio"
+# TODO: Remove once ready
+version="0.0.1"
 
 rm -rf packages
 
 for formatter in $packages; do
 	cd "$root"
+
+	# Setup package
 	pkgName="eslint-formatter-$formatter"
 	mkdir -p "packages/$pkgName"
 	description="ESLint’s official \`$formatter\` formatter, unofficially published as a standalone module"
 
 	cd "packages/$pkgName"
 
+	# Create package.json
 	cp "$root/package-template.json" package.json
 	dot-json package.json name "$pkgName"
-	# dot-json package.json version "$version"
-	dot-json package.json version "0.0.0"
+	dot-json package.json version "$version"
 	dot-json package.json node.engines "$nodeEngine"
 	dot-json package.json author "$author"
 	dot-json package.json description "$description"
@@ -67,5 +74,6 @@ for formatter in $packages; do
 
 	# Extract actual module
 	ncc build "$eslint/lib/cli-engine/formatters/$formatter.js" -o . --license license
+
 	npm publish
 done
