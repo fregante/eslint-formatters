@@ -4,7 +4,7 @@
 
 You can see the [output example on eslint.org](https://eslint.org/docs/user-guide/formatters/#jslint-xml).
 
-This package has been extracted from [ESLint’s repository](https://github.com/eslint/eslint/tree/master/lib/cli-engine/formatters) by @fregante so you can use it independently of ESLint.
+This package has been extracted from [ESLint’s repository](https://github.com/eslint/eslint/tree/master/lib/cli-engine/formatters) by [@fregante](https://github.com/fregante) so you can use it independently of ESLint.
 
 **Important:** If you're using ESLint, you do not need this package, the formatter is built into ESLint.
 
