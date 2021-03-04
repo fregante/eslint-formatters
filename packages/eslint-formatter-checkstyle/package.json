@@ -1,7 +1,7 @@
 {
 	"name": "eslint-formatter-checkstyle",
-	"version": "0.0.0",
-	"description": "{}",
+	"version": "0.0.1",
+	"description": "ESLint’s official `checkstyle` formatter, unofficially published as a standalone module",
 	"keywords": [
 		"lint",
 		"javascript",

@@ -50,6 +50,8 @@ for formatter in $packages; do
 	cd "$root"
 	pkgName="eslint-formatter-$formatter"
 	mkdir -p "packages/$pkgName"
+	description="ESLint’s official \`$formatter\` formatter, unofficially published as a standalone module"
+
 	cd "packages/$pkgName"
 
 	cp "$root/package-template.json" package.json
@@ -58,6 +60,12 @@ for formatter in $packages; do
 	dot-json package.json version "0.0.0"
 	dot-json package.json node.engines "$nodeEngine"
 	dot-json package.json author "$author"
+	dot-json package.json description "$description"
+
+	# Generate readme
+	sed "s|NAME|$pkgName|;s|DESCRIPTION|$description|;s|FORMATTER|$formatter|" > readme.md < "$root/readme-template.md"
+
+	# Extract actual module
 	ncc build "$eslint/lib/cli-engine/formatters/$formatter.js" -o . --license license
 	npm publish
 done
