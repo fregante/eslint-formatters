@@ -1,0 +1,17 @@
+{
+	"private": true,
+	"scripts": {
+		"prettier": "prettier . --single-quote --use-tabs --no-bracket-spacing --arrow-parens avoid --print-width 150 --prose-wrap never --ignore-path .gitignore",
+		"start": "bash publish.sh",
+		"format": "npm run prettier -- --write",
+		"test": "shellcheck publish.sh"
+	},
+	"dependencies": {
+		"@vercel/ncc": "^0.27.0",
+		"prettier": "^2.2.1"
+	},
+	"engines": {
+		"node": ">=15",
+		"npm": ">=7"
+	}
+}

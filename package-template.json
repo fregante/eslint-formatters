@@ -1,12 +1,12 @@
 {
-  "name": "{}",
-  "author": "{}",
-  "version": "{}",
-  "repository": "fregante/eslint-formatters",
-  "keywords": [
-    "lint",
-    "javascript",
-    "ecmascript"
-  ],
-  "license": "MIT"
+	"name": "{}",
+	"version": "{}",
+	"keywords": [
+		"lint",
+		"javascript",
+		"ecmascript"
+	],
+	"repository": "fregante/eslint-formatters",
+	"license": "MIT",
+	"author": "{}"
 }

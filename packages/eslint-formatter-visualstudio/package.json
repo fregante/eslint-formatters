@@ -1,15 +1,16 @@
 {
-  "name": "eslint-formatter-visualstudio",
-  "author": "Nicholas C. Zakas <nicholas+npm@nczconsulting.com>",
-  "version": "0.0.0",
-  "repository": "fregante/eslint-formatters",
-  "keywords": [
-    "lint",
-    "javascript",
-    "ecmascript"
-  ],
-  "license": "MIT",
-  "node": {
-    "engines": "^10.12.0 || >=12.0.0"
-  }
+	"name": "eslint-formatter-visualstudio",
+	"version": "0.0.0",
+	"description": "{}",
+	"keywords": [
+		"lint",
+		"javascript",
+		"ecmascript"
+	],
+	"repository": "fregante/eslint-formatters",
+	"license": "MIT",
+	"author": "Nicholas C. Zakas <nicholas+npm@nczconsulting.com>",
+	"node": {
+		"engines": "^10.12.0 || >=12.0.0"
+	}
 }
