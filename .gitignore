@@ -1,0 +1,5 @@
+package
+*.tgz
+node_modules
+packages/*/index.js
+packages/*/license
