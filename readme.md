@@ -2,7 +2,9 @@
 
 > Automatically extracts and published the native ESLint formatter.
 
-This [every native ESLint formatter](https://github.com/eslint/eslint/tree/master/lib/cli-engine/formatters) is extracted and published as if `eslint/eslint` was a monorepo.
+[Every native ESLint formatter](https://github.com/eslint/eslint/tree/master/lib/cli-engine/formatters) is extracted and published as if `eslint/eslint` was a monorepo.
+
+**Important:** If you're using ESLint, these packages are not useful to you, they are all built into ESLint.
 
 You can see the [output of each on eslint.org](https://eslint.org/docs/user-guide/formatters/).
 
@@ -20,6 +22,4 @@ You can see the [output of each on eslint.org](https://eslint.org/docs/user-guid
 - [eslint-formatter-unix](packages/eslint-formatter-unix)
 - [eslint-formatter-visualstudio](packages/eslint-formatter-visualstudio)
 
-**Important:** If you're using ESLint, these packages are not useful to you, they are all built into ESLint.
-
-**Note for ESLint’s maintainers:** Open an issue if you'd like to publish these packages yourself as part of a monorepo. I'll gladly pass the npm names to you. Much 💚
+**Note for ESLint’s maintainers:** Open an issue or ping me on Twitter [@fregante](https://twitter.com/fregante) if you'd like to publish these packages yourself as part of a monorepo. I'll gladly pass the npm names to you. Much 💚
