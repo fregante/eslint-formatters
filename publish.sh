@@ -62,18 +62,20 @@ for formatter in $packages; do
 	cd "packages/$pkgName"
 
 	# Create package.json
-	cp "$root/package-template.json" package.json
+	cp "$root/template/package.json" package.json
 	dot-json package.json name "$pkgName"
 	dot-json package.json version "$version"
 	dot-json package.json node.engines "$nodeEngine"
 	dot-json package.json author "$author"
 	dot-json package.json description "$description"
+	dot-json package.json homepage "https://github.com/fregante/eslint-formatters/tree/main/packages/$pkgName"
 
 	# Generate readme
-	sed "s|NAME|$pkgName|;s|DESCRIPTION|$description|;s|FORMATTER|$formatter|" > readme.md < "$root/readme-template.md"
+	sed "s|NAME|$pkgName|;s|DESCRIPTION|$description|;s|FORMATTER|$formatter|" > readme.md < "$root/template/readme.md"
 
 	# Extract actual module
 	ncc build "$eslint/lib/cli-engine/formatters/$formatter.js" -o . --license license
 
+	# 🎉
 	npm publish
 done

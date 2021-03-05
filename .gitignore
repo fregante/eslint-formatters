@@ -1,5 +1,5 @@
 package
+packages
+!packages/*/readme.md
 *.tgz
 node_modules
-packages/*/index.js
-packages/*/license

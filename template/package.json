@@ -2,8 +2,13 @@
 	"name": "{}",
 	"version": "{}",
 	"description": "{}",
-	"keywords": ["lint", "javascript", "ecmascript"],
+	"keywords": [
+		"lint",
+		"javascript",
+		"ecmascript"
+	],
 	"repository": "fregante/eslint-formatters",
+	"homepage": "{}",
 	"license": "MIT",
 	"author": "{}"
 }
