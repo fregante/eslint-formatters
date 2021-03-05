@@ -47,7 +47,7 @@ nodeEngine=$(dot-json "$eslint/package.json" engines.node)
 author=$(dot-json "$eslint/package.json" author)
 
 # TODO: Remove once ready
-version="0.0.1"
+version="0.0.2"
 
 rm -rf packages
 
@@ -75,6 +75,9 @@ for formatter in $packages; do
 
 	# Extract actual module
 	ncc build "$eslint/lib/cli-engine/formatters/$formatter.js" -o . --license license
+
+	# Add types
+	cp "$root/template/index.d.ts" .
 
 	# 🎉
 	npm publish
