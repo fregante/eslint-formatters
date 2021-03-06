@@ -1,0 +1,17 @@
+{
+	"name": "eslint-formatter-tap",
+	"version": "0.0.2",
+	"description": "ESLint’s official `tap` formatter, unofficially published as a standalone module",
+	"keywords": [
+		"lint",
+		"javascript",
+		"ecmascript"
+	],
+	"repository": "fregante/eslint-formatters",
+	"homepage": "https://github.com/fregante/eslint-formatters/tree/main/packages/eslint-formatter-tap",
+	"license": "MIT",
+	"author": "Nicholas C. Zakas <nicholas+npm@nczconsulting.com>",
+	"node": {
+		"engines": "^10.12.0 || >=12.0.0"
+	}
+}
