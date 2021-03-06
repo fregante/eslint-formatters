@@ -8,6 +8,8 @@
 	"dependencies": {
 		"@vercel/ncc": "^0.27.0",
 		"download-npm-package": "^3.1.12",
+		"execa": "^5.0.0",
+		"listr": "^0.14.3",
 		"prettier": "^2.2.1"
 	},
 	"engines": {

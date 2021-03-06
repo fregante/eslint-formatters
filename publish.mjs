@@ -2,22 +2,18 @@
 'use strict';
 import {createRequire} from 'module';
 import {promises as fs} from 'fs';
-import {spawn} from 'child_process';
 
 const require = createRequire(import.meta.url);
 const downloadNpmPackage = require('download-npm-package');
+const execa = require('execa');
+const Listr = require('listr');
 
-const currentVersion = '0.0.4';
+const renderer = undefined;
+const collapse = false;
+const concurrent = true;
+const currentVersion = '0.1.0';
 
-function runCommand(command) {
-	return spawn('sh', ['-c', command], {
-		cwd: process.cwd(),
-		stdio: 'inherit',
-		detached: true,
-	});
-}
-
-const packages = [
+const formatters = [
 	'checkstyle',
 	'codeframe',
 	'compact',
@@ -38,10 +34,6 @@ function getEslint(version = 'latest') {
 		dir: 'eslint/' + version,
 	});
 }
-
-console.log('Downloading ESLint…');
-await getEslint();
-console.log('Downloaded ESLint');
 
 const eslintPackage = JSON.parse(await fs.readFile('eslint/latest/eslint/package.json', 'utf8'));
 
@@ -97,36 +89,79 @@ async function createReadme({name, description, formatter, dir}) {
 }
 
 async function bundleFormatter({formatterFileName, dir, dependencies}) {
-	await runCommand(
-		`node_modules/.bin/ncc build ${formatterFileName} -o ${dir} --license license ` +
-			Object.keys(dependencies)
-				.map(dep => '--external ' + dep)
-				.join(' ')
-	);
+	return execa(`node_modules/.bin/ncc`, [
+		'build',
+		formatterFileName,
+		'-o',
+		dir,
+		'--license',
+		'license',
+		...Object.keys(dependencies).flatMap(dep => ['--external', dep]),
+	]);
 }
 
 async function createPackage(formatter) {
-	console.log('Creating', formatter);
 	const name = `eslint-formatter-${formatter}`;
 	const dir = 'packages/' + name;
 	const formatterFileName = `eslint/latest/eslint/lib/cli-engine/formatters/${formatter}.js`;
 	const description = `ESLint’s official \`${formatter}\` formatter, unofficially published as a standalone module`;
 
-	await fs.mkdir(dir, {recursive: true});
-
-	const dependencies = await getDependencies({formatterFileName, dir});
-
-	await createPackageJson({name, description, dependencies, dir});
-	await createReadme({name, description, formatter, dir});
-	await fs.copyFile('template/index.d.ts', dir + '/index.d.ts');
-
-	await bundleFormatter({formatterFileName, dir, dependencies});
-
-	// 🎉
-	await runCommand(`npm publish ${dir}`);
+	return new Listr(
+		[
+			{
+				title: 'Creating folder',
+				task: () => fs.mkdir(dir, {recursive: true}),
+			},
+			{
+				title: 'Parsing dependencies',
+				task: async ctx => {
+					ctx.dependencies = await getDependencies({formatterFileName, dir});
+				},
+			},
+			{
+				title: 'Creating package',
+				task: async ctx =>
+					Promise.all([
+						createPackageJson({name, description, dependencies: ctx.dependencies, dir}),
+						createReadme({name, description, formatter, dir}),
+						fs.copyFile('template/index.d.ts', dir + '/index.d.ts'),
+						bundleFormatter({formatterFileName, dir, dependencies: ctx.dependencies}),
+					]),
+			},
+			{
+				title: 'Publishing',
+				task: () => {
+					console.log(dir);
+					execa(`npm`, ['publish', './' + dir]);
+				},
+			},
+		],
+		{renderer, collapse}
+	);
 }
-await fs.rm('packages', {
-	recursive: true,
-});
 
-await Promise.all(packages.map(formatter => createPackage(formatter)));
+await new Listr(
+	[
+		{
+			title: 'Cleaning',
+			task: () =>
+				fs.rm('packages', {
+					recursive: true,
+					force: true,
+				}),
+		},
+		{
+			title: 'Downloading ESLint',
+			task: () => getEslint(),
+		},
+	],
+	{renderer, collapse, concurrent}
+).run();
+
+await new Listr(
+	formatters.map(formatter => ({
+		title: 'Publishing ' + formatter,
+		task: () => createPackage(formatter),
+	})),
+	{renderer, collapse, concurrent, showSubtasks: false}
+).run();

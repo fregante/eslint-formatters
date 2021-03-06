@@ -1,6 +1,6 @@
 {
 	"name": "eslint-formatter-junit",
-	"version": "0.0.2",
+	"version": "0.1.0",
 	"description": "ESLint’s official `junit` formatter, unofficially published as a standalone module",
 	"keywords": [
 		"lint",

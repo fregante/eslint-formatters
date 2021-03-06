@@ -1,6 +1,6 @@
 {
 	"name": "eslint-formatter-table",
-	"version": "0.0.2",
+	"version": "0.1.0",
 	"description": "ESLint’s official `table` formatter, unofficially published as a standalone module",
 	"keywords": [
 		"lint",

@@ -1,6 +1,6 @@
 {
 	"name": "eslint-formatter-json",
-	"version": "0.0.2",
+	"version": "0.1.0",
 	"description": "ESLint’s official `json` formatter, unofficially published as a standalone module",
 	"keywords": [
 		"lint",

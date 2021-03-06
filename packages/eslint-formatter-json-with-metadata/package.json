@@ -1,6 +1,6 @@
 {
 	"name": "eslint-formatter-json-with-metadata",
-	"version": "0.0.2",
+	"version": "0.1.0",
 	"description": "ESLint’s official `json-with-metadata` formatter, unofficially published as a standalone module",
 	"keywords": [
 		"lint",
