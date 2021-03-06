@@ -7,11 +7,12 @@
 		"javascript",
 		"ecmascript"
 	],
-	"repository": "fregante/eslint-formatters",
 	"homepage": "https://github.com/fregante/eslint-formatters/tree/main/packages/eslint-formatter-checkstyle",
+	"repository": "fregante/eslint-formatters",
 	"license": "MIT",
 	"author": "Nicholas C. Zakas <nicholas+npm@nczconsulting.com>",
-	"node": {
-		"engines": "^10.12.0 || >=12.0.0"
+	"dependencies": {},
+	"engines": {
+		"node": "^10.12.0 || >=12.0.0"
 	}
 }

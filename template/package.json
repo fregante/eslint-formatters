@@ -7,8 +7,10 @@
 		"javascript",
 		"ecmascript"
 	],
-	"repository": "fregante/eslint-formatters",
 	"homepage": "{}",
+	"repository": "fregante/eslint-formatters",
 	"license": "MIT",
-	"author": "{}"
+	"author": "{}",
+	"dependencies": {},
+	"engines": {}
 }

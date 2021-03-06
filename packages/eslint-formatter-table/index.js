@@ -1,11 +1,11 @@
 module.exports =
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 716:
+/***/ 295:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 /**
  * @fileoverview "table reporter.
  * @author Gajus Kuizinas <gajus@gajus.com>
@@ -16,8 +16,8 @@ module.exports =
 // Requirements
 //------------------------------------------------------------------------------
 
-const chalk = __nccwpck_require__(434),
-    table = __nccwpck_require__(411).table;
+const chalk = __nccwpck_require__(242),
+    table = __nccwpck_require__(137).table;
 
 //------------------------------------------------------------------------------
 // Helpers
@@ -169,19 +169,17 @@ module.exports = function(report) {
 
 /***/ }),
 
-/***/ 434:
+/***/ 242:
 /***/ ((module) => {
 
-module.exports = eval("require")("chalk");
-
+module.exports = require("chalk");;
 
 /***/ }),
 
-/***/ 411:
+/***/ 137:
 /***/ ((module) => {
 
-module.exports = eval("require")("table");
-
+module.exports = require("table");;
 
 /***/ })
 
@@ -223,6 +221,6 @@ module.exports = eval("require")("table");
 /******/ 	// module exports must be returned from runtime so entry inlining is disabled
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	return __nccwpck_require__(716);
+/******/ 	return __nccwpck_require__(295);
 /******/ })()
 ;

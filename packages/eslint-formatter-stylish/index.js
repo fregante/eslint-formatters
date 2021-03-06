@@ -1,20 +1,20 @@
 module.exports =
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 257:
+/***/ 429:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 /**
  * @fileoverview Stylish reporter
  * @author Sindre Sorhus
  */
 
 
-const chalk = __nccwpck_require__(434),
-    stripAnsi = __nccwpck_require__(944),
-    table = __nccwpck_require__(974);
+const chalk = __nccwpck_require__(242),
+    stripAnsi = __nccwpck_require__(582),
+    table = __nccwpck_require__(12);
 
 //------------------------------------------------------------------------------
 // Helpers
@@ -111,27 +111,24 @@ module.exports = function(results) {
 
 /***/ }),
 
-/***/ 434:
+/***/ 242:
 /***/ ((module) => {
 
-module.exports = eval("require")("chalk");
-
+module.exports = require("chalk");;
 
 /***/ }),
 
-/***/ 944:
+/***/ 582:
 /***/ ((module) => {
 
-module.exports = eval("require")("strip-ansi");
-
+module.exports = require("strip-ansi");;
 
 /***/ }),
 
-/***/ 974:
+/***/ 12:
 /***/ ((module) => {
 
-module.exports = eval("require")("text-table");
-
+module.exports = require("text-table");;
 
 /***/ })
 
@@ -173,6 +170,6 @@ module.exports = eval("require")("text-table");
 /******/ 	// module exports must be returned from runtime so entry inlining is disabled
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	return __nccwpck_require__(257);
+/******/ 	return __nccwpck_require__(429);
 /******/ })()
 ;

@@ -2,12 +2,12 @@
 	"private": true,
 	"scripts": {
 		"prettier": "prettier . --single-quote --use-tabs --no-bracket-spacing --arrow-parens avoid --print-width 150 --prose-wrap never",
-		"publish": "bash publish.sh",
-		"format": "npm run prettier -- --write",
-		"test": "shellcheck publish.sh"
+		"publish": "node publish.mjs",
+		"format": "npm run prettier -- --write"
 	},
 	"dependencies": {
 		"@vercel/ncc": "^0.27.0",
+		"download-npm-package": "^3.1.12",
 		"prettier": "^2.2.1"
 	},
 	"engines": {

@@ -1,18 +1,18 @@
 module.exports =
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 970:
+/***/ 20:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 /**
  * @fileoverview TAP reporter
  * @author Jonathan Kingston
  */
 
 
-const yaml = __nccwpck_require__(635);
+const yaml = __nccwpck_require__(675);
 
 //------------------------------------------------------------------------------
 // Helper Functions
@@ -105,11 +105,10 @@ module.exports = function(results) {
 
 /***/ }),
 
-/***/ 635:
+/***/ 675:
 /***/ ((module) => {
 
-module.exports = eval("require")("js-yaml");
-
+module.exports = require("js-yaml");;
 
 /***/ })
 
@@ -151,6 +150,6 @@ module.exports = eval("require")("js-yaml");
 /******/ 	// module exports must be returned from runtime so entry inlining is disabled
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	return __nccwpck_require__(970);
+/******/ 	return __nccwpck_require__(20);
 /******/ })()
 ;

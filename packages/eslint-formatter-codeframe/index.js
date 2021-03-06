@@ -1,19 +1,19 @@
 module.exports =
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 321:
+/***/ 541:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
 /**
  * @fileoverview Codeframe reporter
  * @author Vitor Balocco
  */
 
 
-const chalk = __nccwpck_require__(434);
-const { codeFrameColumns } = __nccwpck_require__(218);
+const chalk = __nccwpck_require__(242);
+const { codeFrameColumns } = __nccwpck_require__(208);
 const path = __nccwpck_require__(622);
 
 //------------------------------------------------------------------------------
@@ -148,26 +148,23 @@ module.exports = function(results) {
 
 /***/ }),
 
-/***/ 218:
+/***/ 208:
 /***/ ((module) => {
 
-module.exports = eval("require")("@babel/code-frame");
-
+module.exports = require("@babel/code-frame");;
 
 /***/ }),
 
-/***/ 434:
+/***/ 242:
 /***/ ((module) => {
 
-module.exports = eval("require")("chalk");
-
+module.exports = require("chalk");;
 
 /***/ }),
 
 /***/ 622:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("path");;
 
 /***/ })
@@ -210,6 +207,6 @@ module.exports = require("path");;
 /******/ 	// module exports must be returned from runtime so entry inlining is disabled
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	return __nccwpck_require__(321);
+/******/ 	return __nccwpck_require__(541);
 /******/ })()
 ;

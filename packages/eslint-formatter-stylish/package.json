@@ -7,11 +7,16 @@
 		"javascript",
 		"ecmascript"
 	],
-	"repository": "fregante/eslint-formatters",
 	"homepage": "https://github.com/fregante/eslint-formatters/tree/main/packages/eslint-formatter-stylish",
+	"repository": "fregante/eslint-formatters",
 	"license": "MIT",
 	"author": "Nicholas C. Zakas <nicholas+npm@nczconsulting.com>",
-	"node": {
-		"engines": "^10.12.0 || >=12.0.0"
+	"dependencies": {
+		"chalk": "^4.0.0",
+		"strip-ansi": "^6.0.0",
+		"text-table": "^0.2.0"
+	},
+	"engines": {
+		"node": "^10.12.0 || >=12.0.0"
 	}
 }
