@@ -1,0 +1,7 @@
+[31merror[39m: [1mUnexpected foo[22m [2m(foo)[22m at [32mfoo.js:5:10[39m
+
+
+[33mwarning[39m: [1mUnexpected bar[22m [2m(bar)[22m at [32mbar.js:6:11[39m
+
+
+[31m[1m1 error and 1 warning found.[22m[39m

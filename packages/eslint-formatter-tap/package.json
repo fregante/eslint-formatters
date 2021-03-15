@@ -16,5 +16,9 @@
 	},
 	"engines": {
 		"node": "^10.12.0 || >=12.0.0"
-	}
+	},
+	"files": [
+		"index.js",
+		"index.d.ts"
+	]
 }

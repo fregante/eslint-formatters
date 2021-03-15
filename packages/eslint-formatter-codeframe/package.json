@@ -12,10 +12,14 @@
 	"license": "MIT",
 	"author": "Nicholas C. Zakas <nicholas+npm@nczconsulting.com>",
 	"dependencies": {
-		"chalk": "^4.0.0",
-		"@babel/code-frame": "7.12.11"
+		"@babel/code-frame": "7.12.11",
+		"chalk": "^4.0.0"
 	},
 	"engines": {
 		"node": "^10.12.0 || >=12.0.0"
-	}
+	},
+	"files": [
+		"index.js",
+		"index.d.ts"
+	]
 }

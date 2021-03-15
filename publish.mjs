@@ -1,5 +1,5 @@
 // Hacked around, not cleaned up, seems to work
-'use strict';
+import path from 'path';
 import {createRequire} from 'module';
 import {promises as fs} from 'fs';
 
@@ -8,7 +8,8 @@ const downloadNpmPackage = require('download-npm-package');
 const execa = require('execa');
 const Listr = require('listr');
 
-const renderer = undefined;
+const testing = false;
+const renderer = testing ? 'verbose' : undefined;
 const collapse = false;
 const concurrent = true;
 
@@ -35,6 +36,7 @@ function getEslint(version = 'latest') {
 }
 
 const eslintPackage = JSON.parse(await fs.readFile('eslint/latest/eslint/package.json', 'utf8'));
+const testingFixture = JSON.parse(await fs.readFile('test/fixture.json', 'utf8'));
 
 if (eslintPackage.license !== 'MIT') {
 	throw new Error('License is not MIT');
@@ -71,6 +73,7 @@ async function createPackageJson({description, name, dependencies, dir}) {
 	packageJson.homepage = `https://github.com/fregante/eslint-formatters/tree/main/packages/${name}`;
 	packageJson.engines.node = eslintPackage.engines.node;
 	packageJson.dependencies = dependencies;
+	packageJson.files = ['index.js', 'index.d.ts'];
 
 	await fs.writeFile(dir + '/package.json', JSON.stringify(packageJson, null, '\t') + '\n');
 }
@@ -123,20 +126,32 @@ async function createPackage(formatter) {
 			},
 			{
 				title: 'Creating package',
-				task: async ctx =>
+				task: async ctx => {
 					Promise.all([
 						createPackageJson({name, description, dependencies: ctx.dependencies, dir}),
 						createReadme({name, description, formatter, dir}),
 						fs.copyFile('template/index.d.ts', dir + '/index.d.ts'),
 						bundleFormatter({formatterFileName, dir, dependencies: ctx.dependencies}),
-					]),
+					]);
+				},
+			},
+			{
+				title: 'Testing package',
+				task: async ctx => {
+					await execa('npm', ['install', '--no-package-lock'], {
+						cwd: dir,
+					});
+					const formatter = require(path.resolve(dir + '/index.js'));
+					const output = formatter(testingFixture);
+					await fs.writeFile(dir + '/expected-out', output);
+				},
 			},
 			{
 				title: 'Publishing',
 				skip: async () =>
 					execa(`git`, ['diff', '--exit-code', '--', './' + dir]).then(
 						() => true,
-						() => false
+						() => testing
 					), // Skip if no changes
 				task: async () => {
 					await setVersion(dir, eslintPackage.version);
@@ -167,12 +182,14 @@ await new Listr(
 	{renderer, collapse, concurrent, showSubtasks: false}
 ).run();
 
-await new Listr(
-	[
-		{
-			title: 'Committing changes',
-			task: () => execa('git', ['commit', '--all', '--message', eslintPackage.version]),
-		},
-	],
-	{renderer, collapse, concurrent}
-).run();
+if (!testing) {
+	await new Listr(
+		[
+			{
+				title: 'Committing changes',
+				task: () => execa('git', ['commit', '--all', '--message', eslintPackage.version]),
+			},
+		],
+		{renderer, collapse, concurrent}
+	).run();
+}
