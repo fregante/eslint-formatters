@@ -11,7 +11,6 @@ const Listr = require('listr');
 const renderer = undefined;
 const collapse = false;
 const concurrent = true;
-const currentVersion = '0.1.0';
 
 const formatters = [
 	'checkstyle',
@@ -49,7 +48,6 @@ if (eslintPackage.type === 'module') {
 	throw new Error('Type is not `cjs`');
 }
 
-const packageJsonTemplate = JSON.parse(await fs.readFile('template/package.json', 'utf8'));
 const readmeTemplate = await fs.readFile('template/readme.md', 'utf8');
 
 async function getDependencies({formatterFileName}) {
@@ -66,15 +64,20 @@ async function getDependencies({formatterFileName}) {
 }
 
 async function createPackageJson({description, name, dependencies, dir}) {
-	const packageJson = JSON.parse(JSON.stringify(packageJsonTemplate));
+	const packageJson = JSON.parse(await fs.readFile(dir + '/package.json', 'utf8'));
 	packageJson.name = name;
 	packageJson.description = description;
-	packageJson.version = currentVersion;
 	packageJson.author = eslintPackage.author;
 	packageJson.homepage = `https://github.com/fregante/eslint-formatters/tree/main/packages/${name}`;
 	packageJson.engines.node = eslintPackage.engines.node;
 	packageJson.dependencies = dependencies;
 
+	await fs.writeFile(dir + '/package.json', JSON.stringify(packageJson, null, '\t') + '\n');
+}
+
+async function setVersion(dir, version) {
+	const packageJson = JSON.parse(await fs.readFile(dir + '/package.json', 'utf8'));
+	packageJson.version = version;
 	await fs.writeFile(dir + '/package.json', JSON.stringify(packageJson, null, '\t') + '\n');
 }
 
@@ -130,9 +133,14 @@ async function createPackage(formatter) {
 			},
 			{
 				title: 'Publishing',
-				task: () => {
-					console.log(dir);
-					execa(`npm`, ['publish', './' + dir]);
+				skip: async () =>
+					execa(`git`, ['diff', '--exit-code', '--', './' + dir]).then(
+						() => true,
+						() => false
+					), // Skip if no changes
+				task: async () => {
+					await setVersion(dir, eslintPackage.version);
+					await execa(`npm`, ['publish', './' + dir]);
 				},
 			},
 		],
@@ -143,14 +151,6 @@ async function createPackage(formatter) {
 await new Listr(
 	[
 		{
-			title: 'Cleaning',
-			task: () =>
-				fs.rm('packages', {
-					recursive: true,
-					force: true,
-				}),
-		},
-		{
 			title: 'Downloading ESLint',
 			task: () => getEslint(),
 		},
@@ -158,10 +158,21 @@ await new Listr(
 	{renderer, collapse, concurrent}
 ).run();
 
+// Listr is super buggy, so no subtasks, no nested Listrs, etc
 await new Listr(
 	formatters.map(formatter => ({
 		title: 'Publishing ' + formatter,
 		task: () => createPackage(formatter),
 	})),
 	{renderer, collapse, concurrent, showSubtasks: false}
+).run();
+
+await new Listr(
+	[
+		{
+			title: 'Committing changes',
+			task: () => execa('git', ['commit', '--all', '--message', eslintPackage.version]),
+		},
+	],
+	{renderer, collapse, concurrent}
 ).run();

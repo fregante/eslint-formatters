@@ -1,0 +1,17 @@
+name: Update
+
+on:
+  schedule:
+    - cron: '10 10 */2 * *'
+
+jobs:
+  check-and-update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: fregante/setup-git-user@v1
+      - name: Try updating the version
+        run: |
+          npm config set '//registry.npmjs.org/:_authToken' "${{ secrets.NPM_TOKEN }}"
+          npm run publish
+          git push --follow-tags
