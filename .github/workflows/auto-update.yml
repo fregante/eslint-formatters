@@ -12,6 +12,7 @@ jobs:
       - uses: fregante/setup-git-user@v1
       - name: Try updating the version
         run: |
+          npm install
           npm config set '//registry.npmjs.org/:_authToken' "${{ secrets.NPM_TOKEN }}"
           npm run publish
           git push --follow-tags
