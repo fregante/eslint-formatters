@@ -35,6 +35,8 @@ function getEslint(version = 'latest') {
 	});
 }
 
+await getEslint();
+
 const eslintPackage = JSON.parse(await fs.readFile('eslint/latest/eslint/package.json', 'utf8'));
 const testingFixture = JSON.parse(await fs.readFile('test/fixture.json', 'utf8'));
 
