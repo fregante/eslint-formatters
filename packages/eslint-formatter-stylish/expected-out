@@ -1,9 +1,8 @@
-[0m[0m
-[0m[4mfoo.js[24m[0m
-[0m  [2m5:10[22m  [31merror[39m  Unexpected foo  [2mfoo[22m[0m
-[0m[0m
-[0m[4mbar.js[24m[0m
-[0m  [2m6:11[22m  [33mwarning[39m  Unexpected bar  [2mbar[22m[0m
-[0m[0m
-[0m[31m[1m✖ 2 problems (1 error, 1 warning)[22m[39m[0m
-[0m[31m[1m[22m[39m[0m
+
+foo.js
+  5:10  error  Unexpected foo  foo
+
+bar.js
+  6:11  warning  Unexpected bar  bar
+
+✖ 2 problems (1 error, 1 warning)

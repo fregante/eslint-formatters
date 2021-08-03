@@ -1,6 +1,6 @@
 {
 	"name": "eslint-formatter-codeframe",
-	"version": "0.1.0",
+	"version": "7.32.0",
 	"description": "ESLint’s official `codeframe` formatter, unofficially published as a standalone module",
 	"keywords": [
 		"lint",
@@ -12,8 +12,8 @@
 	"license": "MIT",
 	"author": "Nicholas C. Zakas <nicholas+npm@nczconsulting.com>",
 	"dependencies": {
-		"@babel/code-frame": "7.12.11",
-		"chalk": "^4.0.0"
+		"chalk": "^4.0.0",
+		"@babel/code-frame": "7.12.11"
 	},
 	"engines": {
 		"node": "^10.12.0 || >=12.0.0"

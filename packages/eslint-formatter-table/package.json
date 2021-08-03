@@ -1,6 +1,6 @@
 {
 	"name": "eslint-formatter-table",
-	"version": "0.1.0",
+	"version": "7.32.0",
 	"description": "ESLint’s official `table` formatter, unofficially published as a standalone module",
 	"keywords": [
 		"lint",
@@ -13,7 +13,7 @@
 	"author": "Nicholas C. Zakas <nicholas+npm@nczconsulting.com>",
 	"dependencies": {
 		"chalk": "^4.0.0",
-		"table": "^6.0.4"
+		"table": "^6.0.9"
 	},
 	"engines": {
 		"node": "^10.12.0 || >=12.0.0"

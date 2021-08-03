@@ -1,6 +1,6 @@
 {
 	"name": "eslint-formatter-stylish",
-	"version": "0.1.0",
+	"version": "7.32.0",
 	"description": "ESLint’s official `stylish` formatter, unofficially published as a standalone module",
 	"keywords": [
 		"lint",
