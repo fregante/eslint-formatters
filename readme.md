@@ -9,7 +9,6 @@
 You can see the [output of each on eslint.org](https://eslint.org/docs/user-guide/formatters/).
 
 - [eslint-formatter-checkstyle](packages/eslint-formatter-checkstyle)
-- [eslint-formatter-codeframe](packages/eslint-formatter-codeframe)
 - [eslint-formatter-compact](packages/eslint-formatter-compact)
 - ~~eslint-formatter-html~~ _unfortunately already exists, so it's not published_
 - [eslint-formatter-jslint-xml](packages/eslint-formatter-jslint-xml)
@@ -17,9 +16,13 @@ You can see the [output of each on eslint.org](https://eslint.org/docs/user-guid
 - [eslint-formatter-json-with-metadata](packages/eslint-formatter-json-with-metadata)
 - [eslint-formatter-junit](packages/eslint-formatter-junit)
 - [eslint-formatter-stylish](packages/eslint-formatter-stylish)
-- [eslint-formatter-table](packages/eslint-formatter-table)
 - [eslint-formatter-tap](packages/eslint-formatter-tap)
 - [eslint-formatter-unix](packages/eslint-formatter-unix)
 - [eslint-formatter-visualstudio](packages/eslint-formatter-visualstudio)
+
+Also, ESLint 8 dropped 2 formatters and they're now available as their own projects:
+
+- [fregante/eslint-formatter-codeframe](https://github.com/fregante/eslint-formatter-codeframe)
+- [fregante/eslint-formatter-table](https://github.com/fregante/eslint-formatter-table)
 
 **Note for ESLint’s maintainers:** Open an issue or ping me on Twitter [@fregante](https://twitter.com/fregante) if you'd like to publish these packages yourself as part of a monorepo. I'll gladly pass the npm names to you. Much 💚

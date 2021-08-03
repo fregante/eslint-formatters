@@ -15,14 +15,12 @@ const concurrent = true;
 
 const formatters = [
 	'checkstyle',
-	'codeframe',
 	'compact',
 	'jslint-xml',
 	'json',
 	'json-with-metadata',
 	'junit',
 	'stylish',
-	'table',
 	'tap',
 	'unix',
 	'visualstudio',
