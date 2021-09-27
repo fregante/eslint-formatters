@@ -1,0 +1,4 @@
+foo.js(5,10): error foo : Unexpected foo.
+bar.js(6,11): warning bar : Unexpected bar.
+
+2 problems
