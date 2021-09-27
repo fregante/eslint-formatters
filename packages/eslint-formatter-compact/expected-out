@@ -1,0 +1,4 @@
+foo.js: line 5, col 10, Error - Unexpected foo. (foo)
+bar.js: line 6, col 11, Warning - Unexpected bar. (bar)
+
+2 problems
