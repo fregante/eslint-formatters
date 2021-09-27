@@ -13,18 +13,7 @@ const renderer = testing ? 'verbose' : undefined;
 const collapse = false;
 const concurrent = true;
 
-const formatters = [
-	'checkstyle',
-	'compact',
-	'jslint-xml',
-	'json',
-	'json-with-metadata',
-	'junit',
-	'stylish',
-	'tap',
-	'unix',
-	'visualstudio',
-];
+const formatters = ['checkstyle', 'compact', 'jslint-xml', 'json', 'json-with-metadata', 'junit', 'stylish', 'tap', 'unix', 'visualstudio'];
 
 function getEslint(version = 'latest') {
 	return downloadNpmPackage({
