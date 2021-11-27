@@ -28,8 +28,8 @@ if (eslintPackage.license !== 'MIT') {
 	throw new Error('License is not MIT');
 }
 
-if (!eslintPackage.version.startsWith('7')) {
-	throw new Error('Version is not 7');
+if (!eslintPackage.version.startsWith('8')) {
+	throw new Error('Version is not 8');
 }
 
 if (eslintPackage.type === 'module') {
