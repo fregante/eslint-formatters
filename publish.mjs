@@ -146,9 +146,16 @@ Publishing ${formatter}…`);
 	await createPackage(formatter);
 }
 
+
 console.log(`
 
+`);
 
-Committing changes, if any…`);
-await execa('git', ['add', '.']);
-await execa('git', ['commit', '--message', eslintPackage.version]);
+const hasAnyChanges = await execa('git', ['add', '.']).then(() => true, () => false);
+if (hasAnyChanges) {
+	console.log(`Committing changes…`);
+	await execa('git', ['add', '.']);
+	await execa('git', ['commit', '--message', eslintPackage.version]);
+} else {
+	console.log(`No changes found`);
+}
