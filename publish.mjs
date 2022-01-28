@@ -146,12 +146,14 @@ Publishing ${formatter}…`);
 	await createPackage(formatter);
 }
 
-
 console.log(`
 
 `);
 
-const hasAnyChanges = await execa('git', ['add', '.']).then(() => true, () => false);
+const hasAnyChanges = await execa('git', ['add', '.']).then(
+	() => true,
+	() => false
+);
 if (hasAnyChanges) {
 	console.log(`Committing changes…`);
 	await execa('git', ['add', '.']);
