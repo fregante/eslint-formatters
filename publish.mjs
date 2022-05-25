@@ -150,14 +150,13 @@ console.log(`
 
 `);
 
-const hasAnyChanges = await execa('git', ['add', '.']).then(
+const hasAnyChanges = await execa('git', ['commit', '--dry-run']).then(
 	() => true,
 	() => false
 );
 if (hasAnyChanges) {
 	console.log(`Committing changes…`);
-	await execa('git', ['add', '.']);
-	await execa('git', ['commit', '--message', eslintPackage.version]);
+	await execa('git', ['commit', '--all', '--message', eslintPackage.version]);
 } else {
 	console.log(`No changes found`);
 }
