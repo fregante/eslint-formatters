@@ -9,8 +9,8 @@ jobs:
   check-and-update:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: fregante/setup-git-user@v1
+      - uses: actions/checkout@v3
+      - uses: fregante/setup-git-user@v2
       - name: Try updating the version
         run: |
           npm install

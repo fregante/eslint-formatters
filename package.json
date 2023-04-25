@@ -6,10 +6,10 @@
 		"format": "npm run prettier -- --write"
 	},
 	"dependencies": {
-		"@vercel/ncc": "^0.27.0",
+		"@vercel/ncc": "^0.36.1",
 		"download-npm-package": "^3.1.12",
-		"execa": "^5.0.0",
-		"prettier": "^2.2.1"
+		"execa": "^7.1.1",
+		"prettier": "^2.8.8"
 	},
 	"engines": {
 		"node": ">=15",

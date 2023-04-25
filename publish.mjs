@@ -1,11 +1,11 @@
 // Hacked around, not cleaned up, seems to work
 import path from 'path';
+import {execa} from 'execa';
 import {createRequire} from 'module';
 import {promises as fs} from 'fs';
 
 const require = createRequire(import.meta.url);
 const downloadNpmPackage = require('download-npm-package');
-const execa = require('execa');
 
 const testing = false;
 
