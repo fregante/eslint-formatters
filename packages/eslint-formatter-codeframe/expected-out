@@ -1,7 +1,0 @@
-error: Unexpected foo (foo) at foo.js:5:10
-
-
-warning: Unexpected bar (bar) at bar.js:6:11
-
-
-1 error and 1 warning found.

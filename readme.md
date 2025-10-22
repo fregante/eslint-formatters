@@ -1,10 +1,6 @@
-# eslint-formatters (publisher)
+# eslint-formatters
 
-> Automatically extracts formatters from ESLint and publishes them as standalone packages
-
-**Important:** If you're using ESLint, these packages are not useful to you, they are built into ESLint.
-
-You can see the [output of each on eslint.org](https://eslint.org/docs/user-guide/formatters/).
+> ESLint formatters published as standalone packages
 
 - [eslint-formatter-stylish](packages/eslint-formatter-stylish)
 - [eslint-formatter-json](packages/eslint-formatter-json)
