@@ -2,13 +2,9 @@
 	"private": true,
 	"scripts": {
 		"prettier": "prettier . --single-quote --use-tabs --no-bracket-spacing --arrow-parens avoid --print-width 150 --prose-wrap never",
-		"publish": "node publish.mjs",
 		"format": "npm run prettier -- --write"
 	},
 	"dependencies": {
-		"@vercel/ncc": "^0.36.1",
-		"download-npm-package": "^3.1.12",
-		"execa": "^7.1.1",
 		"prettier": "^2.8.8"
 	},
 	"engines": {
