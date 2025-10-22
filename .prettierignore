@@ -1,3 +1,4 @@
 eslint
 packages/*/index.js
 expected-output
+packages/*/examples

@@ -4,7 +4,7 @@ import {join, dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const packagesDir = join(__dirname, '../packages');
+const packagesDir = join(__dirname, 'packages');
 
 // Get all packages that have an index.js file
 const packages = readdirSync(packagesDir, {withFileTypes: true})
@@ -146,15 +146,25 @@ const testCases = [
 	{name: 'with-fixable', fixture: withFixableIssues},
 ];
 
+// Map packages to their appropriate file extensions
+const extensionMap = {
+	'eslint-formatter-json': '.json',
+	'eslint-formatter-json-with-metadata': '.json',
+	'eslint-formatter-checkstyle': '.xml',
+	'eslint-formatter-jslint-xml': '.xml',
+	'eslint-formatter-junit': '.xml',
+};
+
 // Run tests for each package
 for (const pkg of packages) {
 	describe(pkg, async () => {
-		const formatter = (await import(`../packages/${pkg}/index.js`)).default;
+		const formatter = (await import(`./packages/${pkg}/index.js`)).default;
+		const ext = extensionMap[pkg] || '.log';
 
 		for (const {name, fixture} of testCases) {
 			it(name, async () => {
 				const output = formatter(fixture);
-				await expect(output).toMatchFileSnapshot(`../packages/${pkg}/examples/${name}.txt`);
+				await expect(output).toMatchFileSnapshot(`./packages/${pkg}/examples/${name}${ext}`);
 			});
 		}
 	});
