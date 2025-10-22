@@ -2,8 +2,6 @@
 
 > ESLint formatters published as standalone packages
 
-You can see the [output of each on eslint.org](https://eslint.org/docs/user-guide/formatters/).
-
 - [eslint-formatter-stylish](packages/eslint-formatter-stylish)
 - [eslint-formatter-json](packages/eslint-formatter-json)
 - [eslint-formatter-json-with-metadata](packages/eslint-formatter-json-with-metadata)
