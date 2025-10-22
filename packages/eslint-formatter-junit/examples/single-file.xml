@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+<testsuite package="org.eslint" time="0" tests="3" errors="3" name="foo.js">
+<testcase time="0" name="org.eslint.foo" classname="foo"><failure message="Unexpected foo."><![CDATA[line 5, col 10, Error - Unexpected foo. (foo)]]></failure></testcase>
+<testcase time="0" name="org.eslint.semi" classname="foo"><failure message="Missing semicolon."><![CDATA[line 10, col 15, Error - Missing semicolon. (semi)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-unused-vars" classname="foo"><failure message="Unused variable."><![CDATA[line 3, col 8, Warning - Unused variable. (no-unused-vars)]]></failure></testcase>
+</testsuite>
+</testsuites>

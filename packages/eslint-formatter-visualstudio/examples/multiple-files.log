@@ -1,0 +1,5 @@
+foo.js(5,10): error foo : Unexpected foo.
+bar.js(6,11): warning bar : Unexpected bar.
+baz.js(1,1): error : Fatal error parsing file.
+
+3 problems

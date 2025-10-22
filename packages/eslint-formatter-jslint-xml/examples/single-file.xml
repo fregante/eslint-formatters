@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><jslint><file name="foo.js"><issue line="5" char="10" evidence="" reason="Unexpected foo. (foo)" /><issue line="10" char="15" evidence="" reason="Missing semicolon. (semi)" /><issue line="3" char="8" evidence="" reason="Unused variable. (no-unused-vars)" /></file></jslint>

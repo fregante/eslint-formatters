@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+<testsuite package="org.eslint" time="0" tests="3" errors="3" name="fixable.js">
+<testcase time="0" name="org.eslint.semi" classname="fixable"><failure message="Missing semicolon."><![CDATA[line 5, col 20, Error - Missing semicolon. (semi)]]></failure></testcase>
+<testcase time="0" name="org.eslint.comma-dangle" classname="fixable"><failure message="Unexpected trailing comma."><![CDATA[line 8, col 15, Error - Unexpected trailing comma. (comma-dangle)]]></failure></testcase>
+<testcase time="0" name="org.eslint.prefer-const" classname="fixable"><failure message="Prefer const over let."><![CDATA[line 3, col 1, Warning - Prefer const over let. (prefer-const)]]></failure></testcase>
+</testsuite>
+</testsuites>

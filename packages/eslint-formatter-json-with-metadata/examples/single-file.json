@@ -1,0 +1,1 @@
+{"results":[{"filePath":"foo.js","messages":[{"message":"Unexpected foo.","severity":2,"line":5,"column":10,"ruleId":"foo"},{"message":"Missing semicolon.","severity":2,"line":10,"column":15,"ruleId":"semi"},{"message":"Unused variable.","severity":1,"line":3,"column":8,"ruleId":"no-unused-vars"}],"errorCount":2,"warningCount":1,"fixableErrorCount":1,"fixableWarningCount":0}]}

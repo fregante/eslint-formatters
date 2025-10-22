@@ -1,0 +1,8 @@
+
+fixable.js
+  5:20  error    Missing semicolon          semi
+  8:15  error    Unexpected trailing comma  comma-dangle
+  3:1   warning  Prefer const over let      prefer-const
+
+✖ 3 problems (2 errors, 1 warning)
+  2 errors and 1 warning potentially fixable with the `--fix` option.

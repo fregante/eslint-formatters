@@ -1,0 +1,24 @@
+TAP version 13
+1..1
+not ok 1 - fixable.js
+  ---
+  message: Missing semicolon.
+  severity: error
+  data:
+    line: 5
+    column: 20
+    ruleId: semi
+  messages:
+    - message: Unexpected trailing comma.
+      severity: error
+      data:
+        line: 8
+        column: 15
+        ruleId: comma-dangle
+    - message: Prefer const over let.
+      severity: warning
+      data:
+        line: 3
+        column: 1
+        ruleId: prefer-const
+  ...
