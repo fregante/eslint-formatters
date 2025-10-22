@@ -1,0 +1,25 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`eslint-formatter-tap > should format results correctly 1`] = `
+"TAP version 13
+1..2
+not ok 1 - foo.js
+  ---
+  message: Unexpected foo.
+  severity: error
+  data:
+    line: 5
+    column: 10
+    ruleId: foo
+  ...
+ok 2 - bar.js
+  ---
+  message: Unexpected bar.
+  severity: warning
+  data:
+    line: 6
+    column: 11
+    ruleId: bar
+  ...
+"
+`;
