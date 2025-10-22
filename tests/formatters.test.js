@@ -1,10 +1,27 @@
-// Mock ESLint results for testing formatters
+import {describe, it, expect} from 'vitest';
+import {readdirSync} from 'node:fs';
+import {join, dirname} from 'node:path';
+import {fileURLToPath} from 'node:url';
 
-// No errors
-export const noErrors = [];
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const packagesDir = join(__dirname, '../packages');
 
-// Single file with multiple errors (errors and warnings)
-export const singleFile = [
+// Get all packages that have an index.js file
+const packages = readdirSync(packagesDir, {withFileTypes: true})
+	.filter(dirent => dirent.isDirectory())
+	.map(dirent => dirent.name)
+	.filter(name => {
+		try {
+			return readdirSync(join(packagesDir, name)).includes('index.js');
+		} catch {
+			return false;
+		}
+	});
+
+// Test fixtures
+const noErrors = [];
+
+const singleFile = [
 	{
 		filePath: 'foo.js',
 		messages: [
@@ -37,8 +54,7 @@ export const singleFile = [
 	},
 ];
 
-// Multiple files with different error types
-export const multipleFiles = [
+const multipleFiles = [
 	{
 		filePath: 'foo.js',
 		messages: [
@@ -90,8 +106,7 @@ export const multipleFiles = [
 	},
 ];
 
-// Multiple errors and warnings with fixable issues
-export const withFixableIssues = [
+const withFixableIssues = [
 	{
 		filePath: 'fixable.js',
 		messages: [
@@ -123,3 +138,24 @@ export const withFixableIssues = [
 		fixableWarningCount: 1,
 	},
 ];
+
+const testCases = [
+	{name: 'no-errors', fixture: noErrors},
+	{name: 'single-file', fixture: singleFile},
+	{name: 'multiple-files', fixture: multipleFiles},
+	{name: 'with-fixable', fixture: withFixableIssues},
+];
+
+// Run tests for each package
+for (const pkg of packages) {
+	describe(pkg, async () => {
+		const formatter = (await import(`../packages/${pkg}/index.js`)).default;
+
+		for (const {name, fixture} of testCases) {
+			it(name, async () => {
+				const output = formatter(fixture);
+				await expect(output).toMatchFileSnapshot(`../packages/${pkg}/examples/${name}.txt`);
+			});
+		}
+	});
+}
