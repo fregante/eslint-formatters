@@ -1,6 +1,5 @@
 {
 	"private": true,
-	"version": "9.0.0",
 	"scripts": {
 		"prettier": "prettier . --single-quote --use-tabs --no-bracket-spacing --arrow-parens avoid --print-width 150 --prose-wrap never",
 		"format": "npm run prettier -- --write",
@@ -11,7 +10,8 @@
 		"prettier": "^2.8.8"
 	},
 	"engines": {
-		"node": "^18.18.0 || ^20.9.0 || >=21.1.0"
+		"node": ">=15",
+		"npm": ">=7"
 	},
 	"devDependencies": {
 		"vitest": "^3.2.4"

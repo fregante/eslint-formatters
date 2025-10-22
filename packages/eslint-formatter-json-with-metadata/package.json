@@ -1,6 +1,6 @@
 {
 	"name": "eslint-formatter-json-with-metadata",
-	"version": "8.3.0",
+	"version": "9.0.0",
 	"description": "ESLint’s official `json-with-metadata` formatter, unofficially published as a standalone module",
 	"keywords": [
 		"lint",
@@ -13,7 +13,7 @@
 	"author": "Nicholas C. Zakas <nicholas+npm@nczconsulting.com>",
 	"dependencies": {},
 	"engines": {
-		"node": "^12.22.0 || ^14.17.0 || >=16.0.0"
+		"node": "^18.18.0 || ^20.9.0 || >=21.1.0"
 	},
 	"files": [
 		"index.js",
