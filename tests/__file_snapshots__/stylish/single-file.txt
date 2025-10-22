@@ -1,0 +1,8 @@
+
+foo.js
+   5:10  error    Unexpected foo     foo
+  10:15  error    Missing semicolon  semi
+   3:8   warning  Unused variable    no-unused-vars
+
+✖ 3 problems (2 errors, 1 warning)
+  1 error and 0 warnings potentially fixable with the `--fix` option.

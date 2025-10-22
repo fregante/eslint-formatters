@@ -1,0 +1,5 @@
+fixable.js: line 5, col 20, Error - Missing semicolon. (semi)
+fixable.js: line 8, col 15, Error - Unexpected trailing comma. (comma-dangle)
+fixable.js: line 3, col 1, Warning - Prefer const over let. (prefer-const)
+
+3 problems

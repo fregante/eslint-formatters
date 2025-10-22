@@ -1,0 +1,24 @@
+TAP version 13
+1..1
+not ok 1 - foo.js
+  ---
+  message: Unexpected foo.
+  severity: error
+  data:
+    line: 5
+    column: 10
+    ruleId: foo
+  messages:
+    - message: Missing semicolon.
+      severity: error
+      data:
+        line: 10
+        column: 15
+        ruleId: semi
+    - message: Unused variable.
+      severity: warning
+      data:
+        line: 3
+        column: 8
+        ruleId: no-unused-vars
+  ...

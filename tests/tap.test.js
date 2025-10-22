@@ -1,16 +1,25 @@
 import {describe, it, expect} from 'vitest';
 import formatter from '../packages/eslint-formatter-tap/index.js';
-import {mockResults} from '../test-fixtures.js';
+import {noErrors, singleFile, multipleFiles, withFixableIssues} from '../test-fixtures.js';
 
 describe('eslint-formatter-tap', () => {
-	it('should format results correctly', () => {
-		const output = formatter(mockResults);
-		expect(output).toMatchSnapshot();
+	it('no errors', async () => {
+		const output = formatter(noErrors);
+		await expect(output).toMatchFileSnapshot('__file_snapshots__/tap/no-errors.txt');
 	});
 
-	it('should return TAP format for empty results', () => {
-		const output = formatter([]);
-		expect(output).toContain('TAP version 13');
-		expect(output).toContain('1..0');
+	it('single file with multiple errors', async () => {
+		const output = formatter(singleFile);
+		await expect(output).toMatchFileSnapshot('__file_snapshots__/tap/single-file.txt');
+	});
+
+	it('multiple files with different error types', async () => {
+		const output = formatter(multipleFiles);
+		await expect(output).toMatchFileSnapshot('__file_snapshots__/tap/multiple-files.txt');
+	});
+
+	it('with fixable issues', async () => {
+		const output = formatter(withFixableIssues);
+		await expect(output).toMatchFileSnapshot('__file_snapshots__/tap/with-fixable.txt');
 	});
 });

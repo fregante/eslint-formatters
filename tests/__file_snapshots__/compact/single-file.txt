@@ -1,0 +1,5 @@
+foo.js: line 5, col 10, Error - Unexpected foo. (foo)
+foo.js: line 10, col 15, Error - Missing semicolon. (semi)
+foo.js: line 3, col 8, Warning - Unused variable. (no-unused-vars)
+
+3 problems

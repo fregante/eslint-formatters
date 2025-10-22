@@ -1,0 +1,11 @@
+
+foo.js
+  5:10  error  Unexpected foo  foo
+
+bar.js
+  6:11  warning  Unexpected bar  bar
+
+baz.js
+  1:1  error  Fatal error parsing file
+
+✖ 3 problems (2 errors, 1 warning)
