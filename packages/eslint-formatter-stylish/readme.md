@@ -2,8 +2,17 @@
 
 > ESLint's `stylish` formatter as a standalone package
 
-## Links
+## Demo
 
-- [Formatter output example](examples)
-- [Source code](https://github.com/fregante/eslint-formatters/tree/main/packages/eslint-formatter-stylish)
-- [npm package contents](https://www.unpkg.com/browse/eslint-formatter-stylish/)
+```
+foo.js
+  5:10  error  Unexpected foo  foo
+
+bar.js
+  6:11  warning  Unexpected bar  bar
+
+baz.js
+  1:1  error  Fatal error parsing file
+
+✖ 3 problems (2 errors, 1 warning)
+```

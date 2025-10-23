@@ -1,8 +1,0 @@
-
-foo.js
-  5:10  error  Unexpected foo  foo
-
-bar.js
-  6:11  warning  Unexpected bar  bar
-
-✖ 2 problems (1 error, 1 warning)

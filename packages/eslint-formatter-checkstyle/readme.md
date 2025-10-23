@@ -2,8 +2,8 @@
 
 > ESLint's `checkstyle` formatter as a standalone package
 
-## Links
+## Demo
 
-- [Formatter output example](examples)
-- [Source code](https://github.com/fregante/eslint-formatters/tree/main/packages/eslint-formatter-checkstyle)
-- [npm package contents](https://www.unpkg.com/browse/eslint-formatter-checkstyle/)
+```xml
+<?xml version="1.0" encoding="utf-8"?><checkstyle version="4.3"><file name="foo.js"><error line="5" column="10" severity="error" message="Unexpected foo. (foo)" source="eslint.rules.foo" /></file><file name="bar.js"><error line="6" column="11" severity="warning" message="Unexpected bar. (bar)" source="eslint.rules.bar" /></file><file name="baz.js"><error line="1" column="1" severity="error" message="Fatal error parsing file." source="" /></file></checkstyle>
+```
