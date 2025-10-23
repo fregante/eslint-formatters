@@ -1,6 +1,6 @@
 {
 	"name": "eslint-formatter-tap",
-	"version": "9.0.0",
+	"version": "9.0.1",
 	"description": "ESLint’s official `tap` formatter, unofficially published as a standalone module",
 	"keywords": [
 		"lint",
@@ -16,9 +16,5 @@
 	},
 	"engines": {
 		"node": "^18.18.0 || ^20.9.0 || >=21.1.0"
-	},
-	"files": [
-		"index.js",
-		"index.d.ts"
-	]
+	}
 }
